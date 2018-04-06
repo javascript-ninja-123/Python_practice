@@ -437,3 +437,97 @@ def range_check(num):
 
 w = range_check(5)
 w(1,10)
+
+
+def reduceUpperAndLower(value,dictionary):
+    if(value.isupper()):
+        print('upper')
+        dictionary['upper'] += 1;
+    elif value.islower():
+        print('lower')
+        dictionary['lower'] += 1;
+    else:
+        pass;
+
+
+def upAndLow(txt):
+    txt = txt.split();
+    dictionary = {"upper":0,"lower":0};
+    for str in txt:
+        for letter in str:
+            reduceUpperAndLower(letter,dictionary);
+    return dictionary;
+
+
+print(
+    upAndLow("hello how are you")
+)
+
+def up_low(txt):
+    txt = txt.split();
+    txt = list(map(lambda txt:txt,txt))
+    print(txt)
+
+up_low('Hello this is what')
+
+
+def uniqueList(list):
+    newSet = set(list);
+    array = [];
+    for i in newSet:
+        array.append(i);
+    return array;
+
+
+log(
+    uniqueList([1,2,4,4,4,5,5,5,6,6,7,7,7])
+)
+
+
+
+def uniqueList2(list):
+    a = [];
+    for x in list:
+        if not x in a:
+            a.append(x);
+    return a;
+
+
+log(
+    uniqueList2([1,2,3,4,5,6,7])
+)
+
+
+
+def multiply(list):
+    return reduce(
+        lambda acc,val: acc * val,
+        list,
+        1
+    )
+
+log(multiply([1,2,3,-5]))
+
+
+
+def palindrome(str):
+    return str == str[::-1]
+
+log(
+    palindrome("aad")
+)
+
+
+import string
+
+
+def isPanagram(txt):
+    model = set(string.ascii_lowercase);
+    a = list(map(lambda x:x.lower(), txt.replace(" ",'')));
+    return len(a) >= len(model)
+
+
+
+
+log(isPanagram("hello This is me"))
+log(isPanagram("The quick brown fox jumps over the lazy dog"))
